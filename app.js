@@ -19,7 +19,6 @@ const fs = require('fs')
 const app = express()
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
-const cors = require('cors')
 app.use(cors())
 
 /* Setup helmet */
