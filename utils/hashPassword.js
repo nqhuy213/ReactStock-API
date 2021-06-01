@@ -1,4 +1,4 @@
-const bcryt = require('bcrypt')
+const bcrypt = require('bcryptjs');
 
 /**
  * Hash a password
@@ -6,11 +6,11 @@ const bcryt = require('bcrypt')
  * @returns {string} A hashed password
  */
 exports.hashPassword = (password) => {
-  const saltRounds = 10
-  const hash = bcryt.hashSync(password, saltRounds)
-  return hash
-}
+  const saltRounds = bcrypt.genSaltSync(10);
+  const hash = bcrypt.hashSync(password, saltRounds);
+  return hash;
+};
 
 exports.compare = (password, hash) => {
-  return bcryt.compareSync(password,hash)
-}
+  return bcrypt.compareSync(password, hash);
+};
